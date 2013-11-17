@@ -1,3 +1,0 @@
-
-namespace FSharpXamarin.Core.ViewModels
-

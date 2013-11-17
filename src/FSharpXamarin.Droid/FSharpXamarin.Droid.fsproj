@@ -50,11 +50,26 @@
     <Reference Include="System.Core" />
     <Reference Include="FSharp.Core" />
     <Reference Include="Mono.Android" />
+    <Reference Include="Cirrious.CrossCore.Droid">
+      <HintPath>..\..\lib\Mvx\Droid\Cirrious.CrossCore.Droid.dll</HintPath>
+    </Reference>
+    <Reference Include="Cirrious.CrossCore">
+      <HintPath>..\..\lib\Mvx\Droid\Cirrious.CrossCore.dll</HintPath>
+    </Reference>
+    <Reference Include="Cirrious.MvvmCross">
+      <HintPath>..\..\lib\Mvx\Droid\Cirrious.MvvmCross.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Resources\Resource.designer.fs" />
     <Compile Include="Properties\AssemblyInfo.fs" />
     <Compile Include="MainActivity.fs" />
+    <Compile Include="..\FSharpXamarin.Core\App.fs">
+      <Link>Core\App.fs</Link>
+    </Compile>
+    <Compile Include="..\FSharpXamarin.Core\ViewModel.fs">
+      <Link>Core\ViewModel.fs</Link>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -67,4 +82,7 @@
     <AndroidResource Include="Resources\drawable\Icon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.FSharp.targets" />
+  <ItemGroup>
+    <Folder Include="Core\" />
+  </ItemGroup>
 </Project>
