@@ -105,6 +105,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\" />
+    <Folder Include="Sprites\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />
@@ -114,4 +115,7 @@
     <Compile Include="AppDelegate.fs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\..\Microsoft F#\v4.0\Microsoft.FSharp.Targets" />
+  <ItemGroup>
+    <BundleResource Include="Sprites\firefly.png" />
+  </ItemGroup>
 </Project>

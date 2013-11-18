@@ -8,6 +8,7 @@ open MonoTouch.Foundation
 open MonoTouch.SpriteKit
 open MonoTouch.CoreGraphics
 
+/// http://7sharpnine.com/posts/sprite-kit-particle-fun/
 [<Register ("FSharpXamarin_iOSViewController")>]
 type FSharpXamarin_iOSViewController () as x =
     inherit UIViewController ()
@@ -26,6 +27,11 @@ type FSharpXamarin_iOSViewController () as x =
         scene <- new SKScene (spriteView.Bounds.Size,
                               BackgroundColor = UIColor.Blue,
                               ScaleMode = SKSceneScaleMode.AspectFit)
+
+        use sprite = new SKSpriteNode ("Sprites/firefly.png")
+        sprite.Position <- PointF (scene.Frame.GetMidX(), scene.Frame.GetMidY())
+        sprite.Name <- "Firefly"
+        scene.AddChild(sprite)
 
     override x.DidReceiveMemoryWarning () =
         base.DidReceiveMemoryWarning ()
