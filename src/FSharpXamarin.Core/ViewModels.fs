@@ -27,10 +27,8 @@ module HomeAgent =
 type HomeViewModel () =
     inherit MvxViewModel ()
 
-    let printYoMonad () = io {
-        return MvxCommand (fun () ->
-            printfn "yo"
-        )
+    let createCommand (f: unit -> unit) = io {
+        return MvxCommand (fun () -> f())
     }
 
     do
@@ -41,5 +39,5 @@ type HomeViewModel () =
     )
 
     member this.ClickCommandMonad = io {
-        return! printYoMonad ()
+        return! createCommand (fun () -> printfn "yo")
     }
