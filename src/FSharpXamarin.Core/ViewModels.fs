@@ -28,7 +28,11 @@ type HomeViewModel () =
     inherit MvxViewModel ()
 
     let createCommand (f: unit -> unit) = io {
-        return MvxCommand (fun () -> f())
+        return MvxCommand (fun () -> f ())
+    }
+
+    let putStrLn str = io {
+        printfn str
     }
 
     do
@@ -39,5 +43,8 @@ type HomeViewModel () =
     )
 
     member this.ClickCommandMonad = io {
-        return! createCommand (fun () -> printfn "yo")
+        return! createCommand (fun () -> io { 
+                return! putStrLn "yo"
+            }
+        )
     }
