@@ -11,6 +11,15 @@
     <RootNamespace>FSharpXamarin.iOS</RootNamespace>
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
     <AssemblyName>FSharpXamariniOS</AssemblyName>
+    <BuildOrder>
+      <BuildOrder>
+        <String>../FSharpXamarin.Core/Control.IO.fs</String>
+        <String>../FSharpXamarin.Core/ViewModels.fs</String>
+        <String>../FSharpXamarin.Core/App.fs</String>
+        <String>HomeView.fs</String>
+        <String>AppDelegate.fs</String>
+      </BuildOrder>
+    </BuildOrder>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhoneSimulator' ">
     <DebugSymbols>true</DebugSymbols>
@@ -102,20 +111,45 @@
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="monotouch" />
+    <Reference Include="Cirrious.CrossCore.Touch">
+      <HintPath>..\..\lib\Mvx\Touch\Cirrious.CrossCore.Touch.dll</HintPath>
+    </Reference>
+    <Reference Include="Cirrious.CrossCore">
+      <HintPath>..\..\lib\Mvx\Touch\Cirrious.CrossCore.dll</HintPath>
+    </Reference>
+    <Reference Include="Cirrious.MvvmCross.Binding.Touch">
+      <HintPath>..\..\lib\Mvx\Touch\Cirrious.MvvmCross.Binding.Touch.dll</HintPath>
+    </Reference>
+    <Reference Include="Cirrious.MvvmCross.Binding">
+      <HintPath>..\..\lib\Mvx\Touch\Cirrious.MvvmCross.Binding.dll</HintPath>
+    </Reference>
+    <Reference Include="Cirrious.MvvmCross.Touch">
+      <HintPath>..\..\lib\Mvx\Touch\Cirrious.MvvmCross.Touch.dll</HintPath>
+    </Reference>
+    <Reference Include="Cirrious.MvvmCross">
+      <HintPath>..\..\lib\Mvx\Touch\Cirrious.MvvmCross.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\" />
-    <Folder Include="Sprites\" />
+    <Folder Include="Core\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FSharpXamarin_iOSViewController.fs" />
     <Compile Include="AppDelegate.fs" />
+    <Compile Include="..\FSharpXamarin.Core\App.fs">
+      <Link>Core\App.fs</Link>
+    </Compile>
+    <Compile Include="HomeView.fs" />
+    <Compile Include="..\FSharpXamarin.Core\ViewModels.fs">
+      <Link>Core\ViewModels.fs</Link>
+    </Compile>
+    <Compile Include="..\FSharpXamarin.Core\Control.IO.fs">
+      <Link>Core\Control.IO.fs</Link>
+    </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\..\Microsoft F#\v4.0\Microsoft.FSharp.Targets" />
-  <ItemGroup>
-    <BundleResource Include="Sprites\firefly.png" />
-  </ItemGroup>
 </Project>

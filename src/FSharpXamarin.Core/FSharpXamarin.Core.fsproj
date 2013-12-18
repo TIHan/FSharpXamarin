@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -9,6 +9,7 @@
     <OutputType>Library</OutputType>
     <RootNamespace>FSharpXamarin.Core</RootNamespace>
     <AssemblyName>FSharpXamarin.Core</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -43,10 +44,15 @@
     <Reference Include="Cirrious.MvvmCross">
       <HintPath>..\..\lib\Mvx\Portable\Cirrious.MvvmCross.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\..\lib\Mvx\Portable\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Control.IO.fs" />
+    <Compile Include="ViewModels.fs" />
     <Compile Include="App.fs" />
-    <Compile Include="ViewModel.fs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\..\Microsoft F#\v4.0\Microsoft.FSharp.Targets" />
 </Project>

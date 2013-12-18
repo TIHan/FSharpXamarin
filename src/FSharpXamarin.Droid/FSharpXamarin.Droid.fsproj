@@ -68,7 +68,7 @@
       <Link>Core\App.fs</Link>
     </Compile>
     <Compile Include="..\FSharpXamarin.Core\ViewModel.fs">
-      <Link>Core\ViewModel.fs</Link>
+      <Link>Core\ViewModels.fs</Link>
     </Compile>
   </ItemGroup>
   <ItemGroup>

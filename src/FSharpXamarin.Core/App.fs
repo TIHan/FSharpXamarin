@@ -1,11 +1,14 @@
 
-module FSharpXamarin.Core.App
+namespace FSharpXamarin.Core.App
 
 open Cirrious.CrossCore
 open Cirrious.MvvmCross.ViewModels
 
+open FSharpXamarin.Core.ViewModels
+
 type App () =
     inherit MvxApplication ()
 
-    //Mvx.RegisterSingleton (MvxAppStart<HomeViewModel> ())
+    do
+        Mvx.RegisterSingleton<IMvxAppStart> (MvxAppStart<HomeViewModel> ())
 
